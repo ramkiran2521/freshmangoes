@@ -1,0 +1,56 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    background-color: rgb(2, 85, 2);
+    color: white;
+    padding: 4rem 12rem;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer h4{
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-cont ,.fter-cp-sec{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.footer-cont ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1rem;
+
+}
+
+.fter-cp-sec ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+
+}
+
+.subscribe-sec form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subscribe-sec form input {
+    height: 3rem;
+}
+
+.subscribe-sec button {
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.7rem 2rem;
+}

@@ -1,0 +1,29 @@
+.why-sec{
+    margin: 0 20rem;
+    padding: 4rem;
+}
+
+.testi-cont{
+    display:grid ;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+}
+
+.testimonial{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.testimonial img{
+    width: 5rem;
+    height: 5rem;
+}
+
+.testimonial h4{
+    font-size: 2rem;
+}
+
+.testimonial p{
+    font-size: 1.3rem;
+}

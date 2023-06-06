@@ -1,0 +1,38 @@
+.header-cont{
+    font-size: 2.4rem;
+    padding: 2rem 12rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF9B0;
+}
+
+svg{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.logo-sec{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-cont ul{
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.cart-sec{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.cart-sec div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
