@@ -75,9 +75,11 @@ const Card = (props) => {
       <div className="card-des">
         <h4 className="pro-name">{props.product.productname}</h4>
         <div className="cost">
-          <span className="original-cost">
-            ₹{props.product.originalprice}
-          </span>
+          {props.product.offerprice !== props.product.originalprice && (
+            <span className="original-cost">
+              {`₹${props.product.originalprice}`}
+            </span>
+          )}
           <span className="offer-cost">
             {` ₹${props.product.offerprice}`}
           </span>
