@@ -18,7 +18,7 @@ const Home = () => {
 
   const productsFetch = useCallback(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get("https://freshmangoes-backend.onrender.com/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err.message));
   }, []);
