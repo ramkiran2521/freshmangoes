@@ -1,20 +1,41 @@
 import "./Home.css";
 import Card from "./Card";
 import Testimonial from "./Testimonial";
+import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 
-let products = [1, 2, 3, 4, 5, 6, 7, 8];
+// fetch('http://localhost:5000/products')
+// .then(response => response.json())
+// .then((data)=>{
+//   console.log(data)
+// })
+// .catch((err)=>{
+//   console.log(err)
+// })
 
 const Home = () => {
-  
-  const scrollLeft = () =>{
+  const [products, setProducts] = useState([]);
+
+  const productsFetch = useCallback(() => {
+    axios
+      .get("http://localhost:5000/products")
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.log(err.message));
+  }, []);
+
+  useEffect(() => {
+    productsFetch();
+  }, []);
+
+  const scrollLeft = () => {
     let slider = document.querySelector(".Super-deals-sec");
     slider.scrollLeft = slider.scrollLeft - 200;
-  }
+  };
 
-  const scrollRight = () =>{
+  const scrollRight = () => {
     let slider = document.querySelector(".Super-deals-sec");
-    slider.scrollLeft = slider .scrollLeft + 200
-  }
+    slider.scrollLeft = slider.scrollLeft + 200;
+  };
 
   return (
     <div className="home-sec">
@@ -25,7 +46,7 @@ const Home = () => {
           Indian Post To Your Door Steps, Support Farmer!
         </p>
         <div className="weekly-slider">
-          <button onClick={scrollLeft} >
+          <button onClick={scrollLeft}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="1em"
@@ -35,9 +56,16 @@ const Home = () => {
             </svg>
           </button>
           <div className="Super-deals-sec">
-            {products.map((ele) => {
-              return <Card className="larger-cards" key={ele} />;
-            })}
+            {products &&
+              products.map((ele) => {
+                return (
+                  <Card
+                    className="larger-cards"
+                    key={ele._id}
+                    product={ele}
+                  />
+                );
+              })}
           </div>
           <button onClick={scrollRight}>
             <svg
@@ -55,11 +83,16 @@ const Home = () => {
         <h2>Grab and Go</h2>
         <p>Direct From Farmer No Middle Man Involved</p>
         <div className="deals-sec-cards">
-          {products.map((ele) => {
-            return (
-              <Card className="smaller-cards" key={ele} id={ele} />
-            );
-          })}
+          {products &&
+            products.map((ele) => {
+              return (
+                <Card
+                  className="smaller-cards"
+                  key={ele._id}
+                  product={ele}
+                />
+              );
+            })}
         </div>
       </section>
 

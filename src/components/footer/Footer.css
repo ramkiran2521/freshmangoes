@@ -1,56 +1,102 @@
-footer{
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    background-color: rgb(2, 85, 2);
-    color: white;
-    padding: 4rem 12rem;
+footer {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgb(2, 85, 2);
+  color: white;
+  padding: 4rem 8rem;
 }
 
-footer a{
-    color: white;
-    text-decoration: none;
+footer a {
+  color: white;
+  text-decoration: none;
 }
 
-footer h4{
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
+.footer-cont {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.footer-cont ,.fter-cp-sec{
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
+/* .footer-cont > div {
+  padding: 2rem;
+} */
+
+footer h4 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.footer-cont ul{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    gap: 1rem;
-
+.fter-cp-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 0 2rem;
 }
 
-.fter-cp-sec ul{
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-
+.footer-cont ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1rem;
 }
 
-.subscribe-sec form{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.fter-cp-sec ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.subscribe-sec form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .subscribe-sec form input {
-    height: 3rem;
+  height: 3rem;
+  width: 80%;
 }
 
 .subscribe-sec button {
-    border: none;
-    background-color: white;
-    border-radius: 5px;
-    padding: 0.7rem 2rem;
+  width: 80%;
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.7rem 2rem;
+}
+
+@media (max-width: 770px) {
+  .footer-cont {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  footer {
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .footer-cont {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 3rem;
+  }
+
+  .subscribe-sec form {
+    align-items: center;
+  }
+
+  .subscribe-sec button {
+    width: 90%;
+  }
+
+  .fter-cp-sec {
+    flex-direction: column;
+  }
 }

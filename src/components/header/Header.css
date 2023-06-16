@@ -1,38 +1,147 @@
-.header-cont{
-    font-size: 2.4rem;
-    padding: 2rem 12rem;
+.header-cont {
+  font-size: 2.4rem;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdf8c0;
+  position: relative; 
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: green;
+  transition: all 0.3s;
+}
+
+nav {
+  display: block;
+}
+
+.active {
+  color: black;
+  border-bottom: 3px solid black;
+}
+
+svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.logo-sec {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-cont ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.cart-sec {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cart-sec div,
+.cart-sec :nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-link,
+.ham-btn {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .cart-sec div {
+    display: none;
+  }
+
+  .ham-btn {
+    display: block;
+  }
+
+  .cart-link {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-cont nav {
+    z-index: 98;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(189, 189, 225);
+    padding: 3rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: all 0.3s;
+  }
+
+  .show-menu {
+    transform: translateX(-100vw);
+  }
+
+  .header-cont ul {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* hamburger button */
+
+  .ham-btn {
+    z-index: 99;
+    
+    margin-right: 2rem;
+    width: 30px;
+    height: 20px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    background-color: #FFF9B0;
+  }
+
+  .ham-btn div {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+
+    transition: all 0.3s;
+  }
+
+  .ham-btn-active :nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .ham-btn-active :nth-child(2) {
+    transform: scale(0.1);
+  }
+
+  .ham-btn-active :nth-child(3) {
+    transform: rotate(135deg) translate(-6px, 6px);
+  }
 }
 
-svg{
-    width: 2.5rem;
-    height: 2.5rem;
+@media (max-width: 500px) {
+  .logo-sec {
+    font-size: 2rem;
+  }
+
+  .ham-btn {
+    margin-right: 1.2rem;
+  }
 }
-
-.logo-sec{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.header-cont ul{
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-.cart-sec{
-    display: flex;
-    gap: 1.5rem;
-}
-
-.cart-sec div{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-

@@ -1,59 +1,101 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./Card.css";
+import CartContext from "../../store/CartContext";
 
 const Card = (props) => {
-  const [counter, setCounter] = useState(1);
-  const [isDisabled, setIsDisabled] = useState(true);
+  const cartContext = useContext(CartContext);
+  // console.log(cartContext)
+
+  const [quantity, setQuantity] = useState(1);
+  const [isDecBtnDisabled, setIsDecBtnDisabled] = useState(true);
+
+  const navigate = useNavigate();
 
   function isDisabledFun(co) {
     if (co < 2) {
-      setIsDisabled(true);
+      setIsDecBtnDisabled(true);
     } else {
-      setIsDisabled(false);
+      setIsDecBtnDisabled(false);
     }
   }
 
-  function decrimentCounter() {
-    setCounter((prev) => {
+  function decrimentQuantity(e) {
+    setQuantity((prev) => {
       isDisabledFun(prev - 1);
       return prev - 1;
     });
   }
 
-  function incrementCounter() {
-    setCounter((prev) => {
+  function incrementQuantity(e) {
+    setQuantity((prev) => {
       isDisabledFun(prev + 1);
       return prev + 1;
     });
   }
 
-  function addToCart(e){
-    console.log(e.target.parentElement.innerText.split('\n'));
+  function prevent(e) {
+    e.stopPropagation();
+  }
+
+  function addToCart(e) {
+    e.stopPropagation();
+    console.log(e.target.parentElement.innerText.split("\n"));
+
+    cartContext.addItem({
+      id: props.product._id,
+      imgurl: props.product.imageurl,
+      pName: props.product.productname,
+      ogPrice: props.product.originalprice,
+      offPrice: props.product.offerprice,
+      quantity: quantity,
+    });
+
+    setQuantity(1);
+    setIsDecBtnDisabled(true);
+  }
+
+  function navigateProduct(e) {
+    navigate("/product", { state: { product: props.product } });
   }
 
   return (
-    <div className={`each-card ${props.className}`} id={props.id}>
+    <div
+      className={`each-card ${props.className}`}
+      id={props.product._id}
+      onClick={navigateProduct}
+    >
       <div className="card-img">
         <img
-          src="https://static.wixstatic.com/media/12b050_a7caa01c6cbf4a33a25be6300420a9f5~mv2.png/v1/fill/w_500,h_333,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/12b050_a7caa01c6cbf4a33a25be6300420a9f5~mv2.png"
+          src={props.product.imageurl}
           alt="image of mangoes"
         ></img>
       </div>
       <div className="card-des">
-        <h4 className="pro-name">Sendura / Sendhuri / Rajgira</h4>
+        <h4 className="pro-name">{props.product.productname}</h4>
         <div className="cost">
-          <span id="original-cost">₹500</span>
-          <span className="offer-cost">  ₹300</span>
+          <span className="original-cost">
+            ₹{props.product.originalprice}
+          </span>
+          <span className="offer-cost">
+            {` ₹${props.product.offerprice}`}
+          </span>
         </div>
-        <span>₹300 /  3kg</span>
-        <div className="quatity">
-          <button onClick={decrimentCounter} disabled={isDisabled}>
+        <span>₹300 / 3kg</span>
+        <div className="quantity" onClick={prevent}>
+          <button
+            onClick={decrimentQuantity}
+            disabled={isDecBtnDisabled}
+          >
             -
           </button>
-          <span>{counter}</span>
-          <button onClick={incrementCounter}>+</button>
+          <span>{quantity}</span>
+          <button onClick={incrementQuantity}>+</button>
         </div>
-        <button className="add-cart-btn" onClick={addToCart}>Add to Cart</button>
+        <button className="add-cart-btn" onClick={addToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );

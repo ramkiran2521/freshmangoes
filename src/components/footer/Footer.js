@@ -62,7 +62,7 @@ const Footer = () => {
         </ul>
         <div>
           <p>© 2023 FreshMangoes</p>
-          <p>Developed by Kiran</p>
+          <p>Developed by <a href="https://ramkiran-portfolio.netlify.app" target="_blank">Kiran</a></p>
         </div>
       </div>
     </footer>
