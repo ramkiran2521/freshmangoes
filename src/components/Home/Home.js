@@ -1,6 +1,7 @@
 import "./Home.css";
 import Card from "./Card";
 import Testimonial from "./Testimonial";
+import Carousel from "./Carousel";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 
@@ -13,19 +14,7 @@ import { useCallback, useEffect, useState } from "react";
 //   console.log(err)
 // })
 
-const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  const productsFetch = useCallback(() => {
-    axios
-      .get("https://freshmangoes-backend.onrender.com/products")
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.log(err.message));
-  }, []);
-
-  useEffect(() => {
-    productsFetch();
-  }, []);
+const Home = (props) => {
 
   const scrollLeft = () => {
     let slider = document.querySelector(".Super-deals-sec");
@@ -39,6 +28,7 @@ const Home = () => {
 
   return (
     <div className="home-sec">
+      <Carousel/>
       <section className="weekly-deals">
         <h2>Weekly Deals</h2>
         <p>
@@ -56,8 +46,8 @@ const Home = () => {
             </svg>
           </button>
           <div className="Super-deals-sec">
-            {products &&
-              products.map((ele) => {
+            {
+              props.products.map((ele) => {
                 return (
                   <Card
                     className="larger-cards"
@@ -83,8 +73,8 @@ const Home = () => {
         <h2>Grab and Go</h2>
         <p>Direct From Farmer No Middle Man Involved</p>
         <div className="deals-sec-cards">
-          {products &&
-            products.map((ele) => {
+          {
+            props.products.map((ele) => {
               return (
                 <Card
                   className="smaller-cards"

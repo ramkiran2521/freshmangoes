@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Product.css";
 import { useLocation } from "react-router-dom";
+import CartContext from "../../store/CartContext";
 
 const Product = (props) => {
   const state = useLocation();
+  const cartContext = useContext(CartContext);
+
   const [counter, setCounter] = useState(1);
   const [isDisabled, setIsDisabled] = useState(true);
 
@@ -29,8 +32,19 @@ const Product = (props) => {
     });
   }
 
-  function addToCart(e) {
-    console.log(e.target.parentElement.innerText.split("\n"));
+  function addToCart() {
+
+    cartContext.addItem({
+      id: state.state.product._id,
+      imgurl: state.state.product.imageurl,
+      pName: state.state.product.productname,
+      ogPrice: state.state.product.originalprice,
+      offPrice: state.state.product.offerprice,
+      quantity: counter,
+    });
+
+    setCounter(1);
+    setIsDisabled(true);
   }
 
   return (

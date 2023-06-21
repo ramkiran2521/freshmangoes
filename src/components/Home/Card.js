@@ -41,7 +41,6 @@ const Card = (props) => {
 
   function addToCart(e) {
     e.stopPropagation();
-    console.log(e.target.parentElement.innerText.split("\n"));
 
     cartContext.addItem({
       id: props.product._id,
@@ -56,7 +55,7 @@ const Card = (props) => {
     setIsDecBtnDisabled(true);
   }
 
-  function navigateProduct(e) {
+  function navigateProduct() {
     navigate("/product", { state: { product: props.product } });
   }
 
