@@ -74,7 +74,8 @@ const Card = (props) => {
       <div className="card-des">
         <h4 className="pro-name">{props.product.productname}</h4>
         <div className="cost">
-          {props.product.offerprice !== props.product.originalprice && (
+          {props.product.offerprice !==
+            props.product.originalprice && (
             <span className="original-cost">
               {`₹${props.product.originalprice}`}
             </span>
@@ -83,7 +84,7 @@ const Card = (props) => {
             {` ₹${props.product.offerprice}`}
           </span>
         </div>
-        <span>₹300 / 3kg</span>
+        <span>{`₹${props.product.offerprice} / 3kg`}</span>
         <div className="quantity" onClick={prevent}>
           <button
             onClick={decrimentQuantity}

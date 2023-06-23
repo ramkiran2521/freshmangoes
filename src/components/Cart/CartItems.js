@@ -9,11 +9,16 @@ const CartItem = (props) => {
       <div className="p-details">
         <h4>{props.item.pName}</h4>
         <div className="cost">
-          <span className="original-cost">₹{props.item.ogPrice}</span>
+          {props.item.offPrice !== props.item.ogPrice && (
+            <span className="original-cost">
+              ₹{props.item.ogPrice}
+            </span>
+          )}
           <span className="offer-cost">
             {` ₹${props.item.offPrice}`}
           </span>
         </div>
+        <span>{`₹${props.item.offPrice} / 3kg`}</span>
         <div className="c-quantity">
           <button onClick={props.onRemove}>-</button>
           <span>{props.item.quantity}</span>

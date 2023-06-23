@@ -1,6 +1,7 @@
 .cart-item{
     display: flex;
     gap: 2rem;
+    padding: 1rem;
     background-color: rgb(243, 251, 227);
 }
 

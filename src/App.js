@@ -9,6 +9,7 @@ import Cart from "./components/Cart/Cart";
 import Product from "./components/Product/Product";
 import CartProvider from "./store/CartProvider";
 import Loading from "./components/Loading/Loading";
+import MainCart from "./components/MainCart/MainCart";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -49,7 +50,7 @@ function App() {
             <Route path="/shop" element={<h1>Shop</h1>} />
             <Route path="/about" element={<h1>About</h1>} />
             <Route path="/contact" element={<h1>Contact</h1>} />
-            <Route path="/cart" element={<h1>Cart</h1>} />
+            <Route path="/cart" element={<MainCart/>} />
             <Route path="/product/*" element={<Product />} />
             <Route path="/*" element={<h1>Route Not Found</h1>} />
           </Routes>
