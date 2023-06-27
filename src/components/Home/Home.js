@@ -2,8 +2,6 @@ import "./Home.css";
 import Card from "./Card";
 import Testimonial from "./Testimonial";
 import Carousel from "./Carousel";
-import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
 
 // fetch('http://localhost:5000/products')
 // .then(response => response.json())

@@ -27,7 +27,7 @@
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .card-des h4 {
@@ -51,26 +51,60 @@
   font-weight: 600;
 }
 
-.quantity {
-  font-size: 2.5rem;
-  background-color: white;
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.quantity button {
-  font-size: inherit;
-  border: none;
-  background: none;
-  padding: 0.5rem 1rem;
-}
-
 .add-cart-btn {
-  border: none;
-  background-color: darkgreen;
-  color: white;
-  border-radius: 8px;
-  padding: 1rem 2rem;
+  width: 100%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  transition: all 0.3s;
+}
+
+.plus-btn,
+.minus-btn {
+  width: inherit;
+  font-size: 1.6rem;
+  font-family: inherit;
+
+  border: 1.5px solid darkgreen;
+  background-color: white;
+  border-radius: 3rem;
+  padding: 0.7rem 1.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.minus-btn,
+.hide-quantity {
+  display: none;
+}
+
+.add-cart-btn svg {
+  width: 1.3rem;
+}
+
+/* item added */
+
+.item-added button {
+  width: auto;
+}
+
+.item-added.add-cart-btn{
+  justify-content: center;
+}
+
+.item-added .hide-quantity {
+  display: block;
+}
+
+.item-added .minus-btn {
+  display: flex;
+}
+
+.item-added .plus-btn span {
+  display: none;
 }
