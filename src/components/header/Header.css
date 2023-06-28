@@ -8,6 +8,10 @@
   position: relative; 
 }
 
+.header-cont h3 {
+  font-size: 3.2rem;
+}
+
 .nav-link {
   text-decoration: none;
   font-weight: 500;
