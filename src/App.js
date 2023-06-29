@@ -10,6 +10,7 @@ import Product from "./components/Product/Product";
 import CartProvider from "./store/CartProvider";
 import Loading from "./components/Loading/Loading";
 import MainCart from "./components/MainCart/MainCart";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -49,10 +50,10 @@ function App() {
             <Route path="/" element={<Home products={products} />} />
             <Route path="/shop" element={<h1>Shop</h1>} />
             <Route path="/about" element={<h1>About</h1>} />
-            <Route path="/contact" element={<h1>Contact</h1>} />
-            <Route path="/cart" element={<MainCart/>} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<MainCart />} />
             <Route path="/product/*" element={<Product />} />
-            <Route path="/*" element={<h1>Route Not Found</h1>} />
+            <Route path="/*" element={<h1>Page not found</h1>} />
           </Routes>
           <Footer />
         </CartProvider>
