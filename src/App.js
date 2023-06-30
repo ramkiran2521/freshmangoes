@@ -11,6 +11,7 @@ import CartProvider from "./store/CartProvider";
 import Loading from "./components/Loading/Loading";
 import MainCart from "./components/MainCart/MainCart";
 import Contact from "./components/Contact/Contact";
+import ShopAll from "./components/ShopAll/ShopAll";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -48,7 +49,10 @@ function App() {
           <Header onShowCart={showCartHandler} />
           <Routes>
             <Route path="/" element={<Home products={products} />} />
-            <Route path="/shop" element={<h1>Shop</h1>} />
+            <Route
+              path="/shop"
+              element={<ShopAll products={products} />}
+            />
             <Route path="/about" element={<h1>About</h1>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<MainCart />} />
