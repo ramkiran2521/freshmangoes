@@ -20,7 +20,7 @@ function App() {
 
   const productsFetch = useCallback(() => {
     axios
-      .get("https://freshmangoes-backend.onrender.com/products")
+      .get("https://freshmangoes-api.vercel.app/products")
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);
